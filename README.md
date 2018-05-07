@@ -21,7 +21,11 @@ Nothing has been changed from the normal template created by `dotnet new react`
 ## Default React app behavior and components ##
 React app contained within the `ClientApp` folder was regenerated using `create-react-app` after the original folder was deleted.
 ### Routing via React Router ###
-All routing handled by `routes\Routes.js`. The template renders a `<Page>` visual component as a template of what a page should may look like 
+All routing classes should be placed in the `routes` folder. Routing is handled by `Routes.js` by default and the template renders a `<Page>` visual component as a template of what a page should may look like.
+### Other Integrated Service functions ###
+All other integrated service functions should be placed in the `services` folder. Currently these include
+- Logging via `Log.js` which exposes a `log` object passed as `props` to all template React components and deriving from [`structured-log`](https://github.com/structured-log/structured-log) 
+
 ### Template React components ###
 All components contained within the `components` folder
 - `Error.js` is the default component for a **404 Error not found** page
@@ -36,6 +40,8 @@ All components contained within the `components` folder
   - `Footer.js` - a `<Footer>` component that renders a simple HTML5 `<footer>`
 
 ## Customisations available ##
+### Customise logging ###
+Editing the parameters in `services\Log.js` the logger object can modify the verbosity and sinks (channels) logs are output to. Examples of parameters can be found on the [structured-log Github page](https://github.com/structured-log/structured-log).
 ### Enable/Disable Auth0 Vanilla Routing ###
 This is to allow authentication based on the [Auth0 example from Github](https://github.com/auth0-samples/auth0-react-samples/tree/master/01-Login)
 To enable/disable:
@@ -66,3 +72,4 @@ Several packages that I found quite useful for quick prototyping and templating 
 5. [react-tooltip](https://github.com/wwayne/react-tooltip) since in using icons for my nav menus, I still wanted users to see what they linked to, so this is a nice little way to accomplish this without having to sacrifice screen placement real estate for words.
 6. [react-spinkit](http://kyleamathews.github.io/react-spinkit/) a great collection of loading indicators since I componentized with Fake data with the thought that all the data is going to come from [Fetch()](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data) calls at some point to the [ASP.Net Core WebAPI project](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-vsc?view=aspnetcore-2.1), so would have some delay and would need a loading indicator as placeholder while this was happening.
 7. [react-router-dom](https://reacttraining.com/react-router/) Of course this might seem obvious, but React Router is used for routing, although it does not come with this by default when using `create-react-app`.
+8. [structured-log] (https://github.com/structured-log/structured-log) for universal logging. I plan to implement Serilog in the .NET Core WebAPI project so this matches up well.
