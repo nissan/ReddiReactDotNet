@@ -15,7 +15,8 @@
     "react-scripts": "1.1.4",
     "react-spinkit": "^3.0.0",
     "react-tooltip": "^3.5.1",
-    "reactstrap": "^6.0.1"
+    "reactstrap": "^6.0.1",
+    "structured-log": "^0.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

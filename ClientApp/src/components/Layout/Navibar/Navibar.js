@@ -30,6 +30,7 @@ class Navibar extends React.Component {
     });
   }
   render() {
+    this.props.log.info("Navibar component rendered");
     return (
       <React.Fragment>
       <Navbar color="light" light expand="md">

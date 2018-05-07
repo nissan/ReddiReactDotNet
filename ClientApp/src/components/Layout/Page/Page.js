@@ -20,6 +20,7 @@ export class Page extends React.Component {
     }
   }
   componentDidMount() {
+    this.props.log.info("Page component mounted");
     const list = new Array(100).fill(true).map(() => ({
       name: faker.name.findName(),
       description: faker.name.jobTitle(),
@@ -35,30 +36,31 @@ export class Page extends React.Component {
     this.setState({sidebarLinks: sidebarItems});
   }
   render() {
+    this.props.log.info("Page component rendered");
     return (
       <Container>
         <Row>
           <Col>
-              <Header appName={this.state.appName}/>
+              <Header appName={this.state.appName} log={this.props.log} />
           </Col>
         </Row>
         <Row>
           <Col>
-            <Navibar appName={this.state.appName} />
+            <Navibar appName={this.state.appName} log={this.props.log} />
           </Col>
         </Row>
         <Row>
           <Col md="8">
-            <Section appName={this.state.appName} />
-            <Article addressBook={this.state.addressBook} />
+            <Section appName={this.state.appName} log={this.props.log} />
+            <Article addressBook={this.state.addressBook} log={this.props.log} />
           </Col>
           <Col md="auto">
-            <Sidebar items={this.state.sidebarLinks} />
+            <Sidebar items={this.state.sidebarLinks} log={this.props.log} />
           </Col>
         </Row>
         <Row>
           <Col>
-            <Footer companyName={this.state.companyName} />
+            <Footer companyName={this.state.companyName} log={this.props.log} />
           </Col>
         </Row>
       </Container>
