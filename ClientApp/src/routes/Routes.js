@@ -4,10 +4,12 @@ import Page from "../components/Layout/Page/Page";
 import Error from "../components/Error";
 
 export const Routes = props => {
+  const log = props.log;
+  log.info("using routes/Routes.js");
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Page} />
+        <Route exact path="/" render={props => <Page log={log} {...props} />}/>
         <Route component={Error} />
       </Switch>
     </Router>
