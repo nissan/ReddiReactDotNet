@@ -47,7 +47,7 @@ class Navibar extends React.Component {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
+              <NavLink href="https://github.com/nissan/ReddiReactDotNet">
                 GitHub
               </NavLink>
             </NavItem>
