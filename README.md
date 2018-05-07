@@ -21,7 +21,11 @@ Nothing has been changed from the normal template created by `dotnet new react`
 ## Default React app behavior and components ##
 React app contained within the `ClientApp` folder was regenerated using `create-react-app` after the original folder was deleted.
 ### Routing via React Router ###
-All routing classes should be placed in the `routes` folder. Routing is handled by `Routes.js` by default and the template renders a `<Page>` visual component as a template of what a page should may look like.
+All routing classes should be placed in the `routes` folder. 
+There are two files available for use: 
+- Normal routing is handled by `<Routes>` component in the `Routes.js` and is enabled by default and the template renders a `<Page>` visual component as a template of what a rich data page could look like.
+- Secure routing using a series of customized components working with Auth0 is handled by the `SecureRoutes.js` and renders a `<SecurePage>` visual component of what a rich data page requiring authentication for access could look like.
+- **Exception** For the self-contained Auth0 routing, the `routes.js` file is held in the `components\Auth0` folder for simplicity.
 ### Other Integrated Service functions ###
 All other integrated service functions should be placed in the `services` folder. Currently these include
 - Logging via `Log.js` which exposes a `log` object passed as `props` to all template React components and deriving from [`structured-log`](https://github.com/structured-log/structured-log) 
@@ -38,7 +42,12 @@ All components contained within the `components` folder
   - `Article.js` - an `<Article>` component that renders an HTML5 `<article>` and embeds the `<AddressBookTable>` component within it
   - `Sidebar.js` - a `<Sidebar>` component that renders a side menu using HTML `<ul>` styling the unordered list with CSS in `Sidebar.css`
   - `Footer.js` - a `<Footer>` component that renders a simple HTML5 `<footer>`
-
+- Secure folder containing the custom components built to work with Auth0 secured pages including
+  - `Login.js` which is a `<Login>` component bound for use with Auth0
+  - `Logout.js` which is a `<Logout>` component bound for use with Auth0.
+  - `Navibar.js` which is an amendment of the one found in the `Layouts` folder to include the `<Login>` or `<Logout>` component based on if the `auth` prop's `isAuthenticated()` value
+  - `SecurePage.js` which is an example `<SecurePage>` component of securely returned rich data.
+  
 ## Customisations available ##
 ### Customise logging ###
 Editing the parameters in `services\Log.js` the logger object can modify the verbosity and sinks (channels) logs are output to. Examples of parameters can be found on the [structured-log Github page](https://github.com/structured-log/structured-log).
@@ -47,8 +56,13 @@ This is to allow authentication based on the [Auth0 example from Github](https:/
 To enable/disable:
 1. Open index.js and uncomment the indicated lines for Auth0 authentication, and comment out the lines for normal routing  
 2. Use the template in `components\Auth0\Auth\auth0-variables.js.example` to create your custom version of `auth0-variables.js` containing the required Auth0 parameters
+### Enable/Disable Auth0 Custom Routing with Custom Visual Components ###
+This is to allow authentication based on the custom components derived from the original [Auth0 example from Github](https://github.com/auth0-samples/auth0-react-samples/tree/master/01-Login)
+To enable/disable:
+1. Open index.js and uncomment the indicated lines for Auth0 authentication, and comment out the lines for normal routing  
+2. Use the template in `services\Auth\auth0-variables.js.example` to create your custom version of `auth0-variables.js` containing the required Auth0 parameters
 
-### History of this project (if you care to know)
+## History of this project (if you care to know) ##
 I created a new application at my command prompt with 
 ```
 dotnet new react
