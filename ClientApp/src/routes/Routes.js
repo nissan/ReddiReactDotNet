@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Page from "../components/Layout/Page/Page";
 import Error from "../components/Error";
 
 export const Routes = props => {
   return (
     <Router>
-      <React.Fragment>
+      <Switch>
         <Route exact path="/" component={Page} />
         <Route component={Error} />
-      </React.Fragment>
+      </Switch>
     </Router>
   );
 };
