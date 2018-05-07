@@ -1,9 +1,8 @@
 import React from 'react';
-import logo from "../../../assets/images/logo.svg";
 import './Sidebar.css';
 
 const Sidebar = (props) => (
-<ul class="sidebar">
+<ul className="sidebar">
 {props.items &&
             props.items.map((item, key) => (
               <li key={key}>

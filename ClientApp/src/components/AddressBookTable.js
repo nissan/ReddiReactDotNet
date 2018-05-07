@@ -15,7 +15,7 @@ const AddressBookTable =(props)=> (
         <tbody>
           {props.addressBook &&
             props.addressBook.map((address, key) => (
-              <tr>
+              <tr key={key}>
                 <th scope="row">{key}</th>
                 <td>{address.name}</td>
                 <td>{address.description}</td>
