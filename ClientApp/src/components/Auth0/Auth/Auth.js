@@ -28,11 +28,13 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         history.replace('/home');
+      
       } else if (err) {
-        history.replace('/home');
+        history.replace('/error');
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }
+      return this.isAuthenticated();
     });
   }
 
@@ -59,6 +61,7 @@ export default class Auth {
     // Check whether the current time is past the 
     // access token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+    const status = new Date().getTime() < expiresAt
+    return status;
   }
 }

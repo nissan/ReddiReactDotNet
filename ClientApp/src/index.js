@@ -1,16 +1,22 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import SecureRoutes from "./routes/Routes";
+/* Comment/uncomment these lines to enable/disable normal routing */
+/*******************************************************************/
+import React from "react";
+import Routes from "./routes/Routes";
+/*******************************************************************/
 import registerServiceWorker from "./registerServiceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-/* Uncomment these lines to go back to using Auth0 vanilla example */
+import "./index.css";
+/* Comment/uncomment these lines to enable/disable using Auth0 vanilla example */
 /*******************************************************************/
 // import {makeMainRoutes} from "./components/Auth0/routes";
 // const routes = makeMainRoutes();
 // ReactDOM.render(routes, document.getElementById("root"));
 /*******************************************************************/
 
-ReactDOM.render(<SecureRoutes />, document.getElementById("root"));
+/* Comment/uncomment these lines to enable/disable normal routing */
+/*******************************************************************/
+ReactDOM.render(<Routes />, document.getElementById("root"));
+/*******************************************************************/
+
 registerServiceWorker();
