@@ -16,6 +16,31 @@ and then
 dotnet run
 ```
 which should start it on `https://localhost:5001` by default
+## Default ASP.Net Core Web API behavior ##
+Nothing has been changed from the normal template created by `dotnet new react`
+## Default React app behavior and components ##
+React app contained within the `ClientApp` folder was regenerated using `create-react-app` after the original folder was deleted.
+### Routing via React Router ###
+All routing handled by `routes\Routes.js`. The template renders a `<Page>` visual component as a template of what a page should may look like 
+### Template React components ###
+All components contained within the `components` folder
+- `Error.js` is the default component for a **404 Error not found** page
+- `AddressBookTable.js` renders a `<AddressBookTable>` component as a table of generated fake data from props passed to it
+- `Layout` folder contains layout visual template components including
+  - `Page.js` - opinionated version of what a page layout should be, containing an embedded `<Header>`, `<Navibar>`, `<Section>`, `<Article>`, `<Sidebar>` and `<Footer>` components and renders data via an `<AddressBookTable>` component
+  - `Header.js` - a `<Header>` component that renders a simple HTML5 `<header>`
+  - `Navibar.js` - a `<Navibar>` component that renders a sample navigation menu using HTML5 `<nav>` and Bootstrap and is used to demonstrate use of `reactstrap`, `react-icons` and `react-tooltip` modules
+  - `Section.js` - a `<Section>` component that renders a simple HTML5 `<section>`
+  - `Article.js` - an `<Article>` component that renders an HTML5 `<article>` and embeds the `<AddressBookTable>` component within it
+  - `Sidebar.js` - a `<Sidebar>` component that renders a side menu using HTML `<ul>` styling the unordered list with CSS in `Sidebar.css`
+  - `Footer.js` - a `<Footer>` component that renders a simple HTML5 `<footer>`
+
+## Customisations available ##
+### Enable/Disable Auth0 Vanilla Routing ###
+This is to allow authentication based on the [Auth0 example from Github](https://github.com/auth0-samples/auth0-react-samples/tree/master/01-Login)
+To enable/disable:
+1. Open index.js and uncomment the indicated lines for Auth0 authentication, and comment out the lines for normal routing  
+2. Use the template in `components\Auth0\Auth\auth0-variables.js.example` to create your custom version of `auth0-variables.js` containing the required Auth0 parameters
 
 ### History of this project (if you care to know)
 I created a new application at my command prompt with 
