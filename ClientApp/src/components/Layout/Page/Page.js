@@ -7,6 +7,7 @@ import Article from "../Article/Article";
 import Sidebar from "../Sidebar/Sidebar";
 import Footer from "../Footer/Footer";
 import faker from "faker";
+import '../../../App.css';
 
 export class Page extends React.Component {
   constructor(props) {
