@@ -20,6 +20,7 @@ import ReactTooltip from "react-tooltip";
 class Navibar extends React.Component {
   constructor(props) {
     super(props);
+    this.toggle=this.toggle.bind(this);
     this.state = {
       isOpen: false
     };

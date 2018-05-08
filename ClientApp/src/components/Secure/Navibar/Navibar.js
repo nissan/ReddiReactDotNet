@@ -22,6 +22,7 @@ import Logout from "../Logout/Logout";
 class Navibar extends React.Component {
   constructor(props) {
     super(props);
+    this.toggle=this.toggle.bind(this);
     this.state = {
       isOpen: false
     };
