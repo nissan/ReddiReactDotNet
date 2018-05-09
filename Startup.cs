@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -21,7 +22,17 @@ namespace frontend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // 1. Add Authentication Services
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://nissan.au.auth0.com/";
+                options.Audience = "https://github.com/nissan/reddireactdotnet";
+            });
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -44,6 +55,9 @@ namespace frontend
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            // 2. Enable authentication middleware
+            app.UseAuthentication();
+
             app.UseSpaStaticFiles();
 
             app.UseMvc(routes =>
