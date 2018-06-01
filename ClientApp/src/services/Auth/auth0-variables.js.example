@@ -1,5 +1,7 @@
 export const AUTH_CONFIG = {
   domain: '{DOMAIN}',
   clientId: '{CLIENT_ID}',
+  audience: '{AUDIENCE},
+  scope: '{SCOPE},
   callbackUrl: 'http://localhost:3000/callback'
 }

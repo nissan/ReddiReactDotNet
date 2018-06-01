@@ -61,6 +61,7 @@ This is to allow authentication based on the custom components derived from the 
 To enable/disable:
 1. Open index.js and uncomment the indicated lines for Auth0 authentication, and comment out the lines for normal routing  
 2. Use the template in `services\Auth\auth0-variables.js.example` to create your custom version of `auth0-variables.js` containing the required Auth0 parameters
+3. In Auth0 you must install and configure the [Auth0 Authorization Extension](https://auth0.com/docs/extensions/authorization-extension/v2) in order to leverage the Policy Authorization example used in the `SampleDataController .
 
 ## History of this project (if you care to know) ##
 I created a new application at my command prompt with 

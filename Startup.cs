@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,13 @@ namespace frontend
                 options.Authority = "https://nissan.au.auth0.com/";
                 options.Audience = "https://github.com/nissan/reddireactdotnet";
             });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("read:messages", policy => policy.Requirements.Add(new HasScopeRequirement("read:messages", domain)));
+            });
+
+            // register the scope authorization handler
+            services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
